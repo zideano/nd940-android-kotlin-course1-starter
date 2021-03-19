@@ -1,11 +1,14 @@
 <resources>
-    <string name="app_name">ShoeStore</string>
+    <string name="app_name">Shoe Store</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="start_icon_desc">Email icon</string>
     <string name="login_button">Login</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="save_button">Save</string>
     <string name="continue_to_instruction_screen">Continue</string>
     <string name="existing_account_button">Existing account?</string>
     <string name="welcome">Welcome to Shoe Store App</string>
     <string name="instruction_screen">The shoe store app is an app that shows you a list of shoes or a details screen for each selected shoe</string>
+    <string name="action_logout">Logout</string>
 </resources>

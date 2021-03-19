@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ShoeDetailFragment">
+
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shoeDetailFragmentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/shoe_name_label"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Shoe Name"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shoe_name_text"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="@={shoe.name}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoe_name_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/company_label"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoe_name_text"
+            android:text="Company"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/company_text"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="@={shoe.company}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/shoe_size_label"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_text"
+            android:text="Shoe Size"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shoe_size_text"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoe_size_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/description_label"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoe_size_text"
+            android:text="Description"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/description_text"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="@={shoe.description}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_label" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/cancel_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/save"
+            app:layout_constraintRight_toLeftOf="@id/save"
+            app:layout_constraintTop_toBottomOf="@+id/description_text"
+            android:layout_marginTop="40dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/save_button"
+            android:background="@drawable/round_button"
+            app:layout_constraintTop_toBottomOf="@+id/description_text"
+            app:layout_constraintLeft_toRightOf="@id/cancel"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="40dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
