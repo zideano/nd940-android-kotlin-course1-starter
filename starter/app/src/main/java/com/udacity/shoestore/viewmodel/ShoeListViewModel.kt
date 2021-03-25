@@ -7,24 +7,25 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeListViewModel : ViewModel() {
 
-    private val _shoes = MutableLiveData<List<Shoe>>()
-    val shoes : LiveData<List<Shoe>>
+    private val _shoes = MutableLiveData<MutableList<Shoe>>()
+    val shoes : LiveData<MutableList<Shoe>>
         get() = _shoes
 
+    private val _isShoeAdded = MutableLiveData<Boolean>()
+    val isShoeAdded : LiveData<Boolean>
+        get() = _isShoeAdded
+
     init {
-        _shoes.value = listOf(
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-            Shoe("Nike", 4.5, "Nike", "Air max 360", listOf()),
-        )
+        _shoes.value = mutableListOf()
+        _isShoeAdded.value = false
+    }
+
+    fun clear() {
+        _isShoeAdded.value = false
+    }
+
+    fun addShoe(shoe: Shoe) {
+        _shoes.value?.add(shoe)
+        _isShoeAdded.value = true
     }
 }

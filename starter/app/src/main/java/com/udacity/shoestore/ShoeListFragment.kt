@@ -5,38 +5,32 @@ import android.view.*
 import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailsScreenBinding
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.viewmodel.ShoeListViewModel
 
 class ShoeListFragment : Fragment() {
     private lateinit var binding: FragmentShoeListBinding
-    private lateinit var viewModel: ShoeListViewModel
+    private val viewModel: ShoeListViewModel by activityViewModels()
     private lateinit var layout: LinearLayout
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
 
-        binding.addShoe.setOnClickListener { view: View ->
+        binding.addShoeButton.setOnClickListener { view: View ->
             view.findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragment2ToShoeDetailFragment())
         }
 
-        // do I need this?
         setHasOptionsMenu(true)
-
-        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
 
         binding.shoeListViewModel = viewModel
 
         layout = binding.shoeListLayout
 
-        binding.lifecycleOwner = this
-
-        viewModel.shoes.observe(viewLifecycleOwner, Observer {shoeList ->
-            // this is where you add the views programmatically
+        viewModel.shoes.observe(viewLifecycleOwner, { shoeList ->
             shoeList.forEach { shoe ->
                 val inflate = FragmentShoeDetailsScreenBinding.inflate(inflater, null, false)
                 inflate.shoe = shoe
@@ -49,7 +43,7 @@ class ShoeListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_logout) {
-            true
+            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragment2ToLoginFragment4())
         }
 
         return super.onOptionsItemSelected(item)
@@ -58,5 +52,11 @@ class ShoeListFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.logout_menu, menu)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val activity = activity as MainActivity?
+        activity?.hideUpButton()
     }
 }

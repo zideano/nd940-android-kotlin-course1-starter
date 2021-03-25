@@ -14,112 +14,122 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
+        android:background="@drawable/border"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/shoe_image"
-            android:layout_width="180dp"
-            android:layout_height="140dp"
-            android:background="@drawable/ic_baseline_shopping_cart_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="5dp"/>
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/shoe_name_label"
-            android:layout_width="80dp"
+            android:layout_width="45dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="16dp"
             android:text="Name:"
             android:textSize="15sp"
-            app:layout_constraintLeft_toRightOf="@id/shoe_image"
-            app:layout_constraintRight_toLeftOf="@id/shoe_name_text"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
             android:id="@+id/shoe_name_text"
             android:layout_width="120dp"
             android:layout_height="20dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="120dp"
             android:inputType="text"
             android:text="@={shoe.name}"
-            app:layout_constraintEnd_toEndOf="@+id/shoe_size_text"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shoe_name_label"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/shoe_size_label"
-            android:layout_width="80dp"
+            android:layout_width="35dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="12dp"
             android:text="Size:"
             android:textSize="15sp"
-            app:layout_constraintLeft_toRightOf="@id/shoe_image"
-            app:layout_constraintRight_toLeftOf="@id/shoe_size_text"
-            app:layout_constraintTop_toBottomOf="@id/shoe_name_label" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_name_label" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
             android:id="@+id/shoe_size_text"
             android:layout_width="120dp"
             android:layout_height="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="120dp"
             android:inputType="text"
-            app:layout_constraintEnd_toEndOf="@+id/company_text"
-            app:layout_constraintTop_toBottomOf="@id/shoe_name_text" />
+            android:text="@={`` + shoe.size}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shoe_size_label"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_name_text" />
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/company_label"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="12dp"
             android:text="Company:"
             android:textSize="15sp"
-            app:layout_constraintLeft_toRightOf="@id/shoe_image"
-            app:layout_constraintRight_toLeftOf="@id/company_text"
-            app:layout_constraintTop_toBottomOf="@id/shoe_size_label" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_size_label" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
             android:id="@+id/company_text"
             android:layout_width="120dp"
             android:layout_height="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             android:inputType="text"
             android:text="@={shoe.company}"
+            app:layout_constraintHorizontal_bias="0.176"
             app:layout_constraintLeft_toRightOf="@id/company_label"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/shoe_size_text" />
+            app:layout_constraintTop_toBottomOf="@+id/shoe_size_text" />
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/description_label"
             android:layout_width="80dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             android:text="Description:"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/shoe_image"
-            app:layout_constraintTop_toBottomOf="@id/company_label"
-            app:layout_constraintVertical_bias="0.237" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_label"
+            app:layout_constraintVertical_bias="0.842" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
             android:id="@+id/description_text"
             android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:ellipsize="none"
             android:inputType="text"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
             android:text="@={shoe.description}"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@id/description_label"
+            app:layout_constraintHorizontal_bias="0.346"
+            app:layout_constraintLeft_toRightOf="@id/description_label"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description_label"
-            app:layout_constraintVertical_bias="0.062" />
+            app:layout_constraintTop_toBottomOf="@+id/company_text"
+            app:layout_constraintVertical_bias="0.325" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
